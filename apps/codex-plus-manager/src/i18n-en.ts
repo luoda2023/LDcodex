@@ -752,7 +752,7 @@ export const EN_PLAIN: Record<string, string> = {
   "立刻修复历史会话": "Repair historical sessions now",
   "第三方": "Third party",
   "策略": "Strategy",
-  "管理 API 供应商、协议、Key 与配置文件": "Manage API providers, protocols, keys and config files",
+  "管理 AI 模型的供应商、协议、Key 与配置文件": "Manage AI model providers, protocols, keys and config files",
   "管理 Codex SSH 项目并加入 Zed workspace": "Manage Codex SSH projects and add them to a Zed workspace",
   "管理工具入口": "Manager entrypoint",
   "管理控制台": "Management console",
@@ -1083,6 +1083,9 @@ export const EN_PLAIN: Record<string, string> = {
     "❌ Batch description parse failed (should not trigger for single-image tests)",
   "❌ HTTP 客户端构建失败": "❌ Failed to build the HTTP client",
   "❌ 未知错误": "❌ Unknown error",
+  "AI模型配置": "AI Model Configuration",
+  "AI模型列表": "AI Model List",
+  "freebuff增强": "Freebuff Enhancement",
 };
 
 // Interpolated strings: tf("前缀 {0}", [x]) -> EN_TEMPLATE["前缀 {0}"] with {0} filled.
@@ -1102,7 +1105,7 @@ export const EN_TEMPLATE: Record<string, string> = {
   "{0} 个": "{0}",
   "{0} 个 LDCodex 可识别项目，默认策略：{1}": "{0} project(s) recognized by LDCodex, default strategy: {1}",
   "{0} 个供应商": "{0} provider(s)",
-  "{0} 个供应商配置；可拖动排序，点编辑进入详情": "{0} provider configuration(s); drag to reorder, click edit for details",
+  "{0} 个 AI 模型配置；可拖动排序，点编辑进入详情": "{0} AI model configuration(s); drag to reorder, click edit for details",
   "{0} 个市场脚本，已安装 {1} 个，本地整体 {2}": "{0} marketplace script(s), {1} installed, local overall {2}",
   "{0} 个项目": "{0} project(s)",
   "{0} 副本": "{0} copy",

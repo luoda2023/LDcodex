@@ -878,12 +878,12 @@ const SETTINGS_STEPWISE_SECTION_ID = "settings-stepwise";
 
 const routes: Array<{ id: Route; label: string; icon: LucideIcon; badge?: string }> = [
   { id: "overview", label: t("概览"), icon: LayoutDashboard },
-  { id: "relay", label: t("供应商配置"), icon: KeyRound },
+  { id: "relay", label: t("AI模型配置"), icon: KeyRound },
   { id: "sessions", label: t("会话管理"), icon: MessageCircle },
   { id: "context", label: t("MCP&插件"), icon: Network },
   { id: "weixin", label: t("微信连接"), icon: ScanLine },
   { id: "enhance", label: t("Codex增强"), icon: Hammer },
-  { id: "freebuffConfig", label: t("freebuff配置"), icon: Plug2 },
+  { id: "freebuffConfig", label: t("freebuff增强"), icon: Plug2 },
   { id: "dreamSkin", label: t("皮肤管理"), icon: Palette },
   { id: "zedRemote", label: t("Zed 远程项目"), icon: ExternalLink },
   { id: "userScripts", label: t("脚本市场"), icon: FileCode2 },
@@ -4293,7 +4293,7 @@ function RelayScreen({
   return (
     <>
       <Panel>
-        <CardHead title={t("供应商列表")} detail={tf("{0} 个供应商配置；可拖动排序，点编辑进入详情", [normalized.relayProfiles.length])} />
+        <CardHead title={t("AI模型列表")} detail={tf("{0} 个 AI 模型配置；可拖动排序，点编辑进入详情", [normalized.relayProfiles.length])} />
         <CardContent>
           <EnvConflictNotice envConflicts={envConflicts} actions={actions} />
           <label className="switch-row relay-master-switch">
@@ -5745,7 +5745,7 @@ function FreebuffConfigScreen({ actions }: { actions: Actions }) {
   return (
     <>
       <Panel>
-        <CardHead title={t("freebuff配置")} detail={t("Freebuff 桌面版汉化补丁、插件增强与自定义模型管理")} />
+        <CardHead title={t("freebuff增强")} detail={t("Freebuff 桌面版汉化补丁、插件增强与自定义模型管理")} />
         <CardContent>
           <div className="metric-list">
             <Metric label={t("安装目录")} value={status?.installDir ?? t("检测中…")} />
@@ -9680,7 +9680,7 @@ function routeTitle(route: Route) {
 function routeSubtitle(route: Route) {
   const subtitles: Record<Route, string> = {
     overview: t("检查问题、启动与快速修复"),
-    relay: t("管理 API 供应商、协议、Key 与配置文件"),
+    relay: t("管理 AI 模型的供应商、协议、Key 与配置文件"),
     grok: t("管理 Grok CLI 的模型与 API 端点"),
     relayEnvironment: t("排查可能干扰中转站配置的本机环境"),
     sessions: t("查看、删除和修复 Codex 本地会话"),

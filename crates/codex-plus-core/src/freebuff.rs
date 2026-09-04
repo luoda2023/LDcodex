@@ -238,12 +238,14 @@ pub fn detect_freebuff_version(install_dir: &Path) -> (String, bool) {
     let exe = install_dir.join("Freebuff.exe");
     #[cfg(windows)]
     {
+        use std::os::windows::process::CommandExt;
         if let Ok(output) = std::process::Command::new("powershell")
             .args(["-NoProfile", "-NonInteractive", "-Command"])
             .arg(format!(
                 "(Get-Item -LiteralPath '{0}').VersionInfo.ProductVersion",
                 exe.to_string_lossy().replace("'", "''")
             ))
+            .creation_flags(crate::windows_integration::CREATE_NO_WINDOW)
             .output()
         {
             let stdout = String::from_utf8_lossy(&output.stdout).trim().to_string();
