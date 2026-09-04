@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "LDCodex",
+  "version": "1.2.56",
+  "identifier": "cn.dicad.ldcodex.manager",
+  "build": {
+    "beforeDevCommand": "npm run vite:dev",
+    "beforeBuildCommand": "npm run vite:build",
+    "devUrl": "http://127.0.0.1:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "create": false,
+        "label": "main",
+        "title": "LDCodex 管理工具",
+        "width": 1180,
+        "height": 820,
+        "minWidth": 960,
+        "minHeight": 720
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$HOME/.ldcodex/dream-skin/**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "LUODA",
+    "homepage": "https://dicad.cn",
+    "shortDescription": "LDCodex 管理工具",
+    "longDescription": "LDCodex 管理工具：Codex++ 风格的中转与助手配置面板（作者 LUODA，官网 dicad.cn）。",
+    "category": "DeveloperTool",
+    "icon": [
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "perMachine",
+        "displayLanguageSelector": false,
+        "languages": ["SimpChinese", "English"],
+        "compression": "lzma",
+        "startMenuFolder": "LDCodex 管理工具"
+      }
+    }
+  }
+}

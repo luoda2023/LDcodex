@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LDCodex 管理工具</title>
+    <script>
+      window.__TAURI_INTERNALS__ = {
+        metadata: { currentWindow: { label: "main" } },
+        transformCallback: () => () => {},
+        invoke: (cmd) => {
+          if (cmd === "freebuff_status") {
+            return Promise.resolve({
+              status: "ok", message: "Freebuff 状态已读取。",
+              installDir: "C:\\Users\\Administrator\\AppData\\Local\\Programs\\@codebufffreebuff-desktop",
+              installed: true, applied: 11, total: 11, complete: true, runtime: "bun.exe",
+              features: [
+                { id: "rendererZh", label: "界面汉化（渲染层）", applied: true, note: "index-*.js 词条替换为中文" },
+                { id: "adsClosed", label: "关闭对话广告", applied: true, note: "广告三层防御短路" },
+                { id: "orchestrator", label: "后台增强（登录/防断/重试）", applied: true, note: "orchestrator.js 全标记" },
+                { id: "customModels", label: "自定义模型注册表", applied: true, note: "custom-models.json 注册表 + API" },
+                { id: "shellZh", label: "原生外壳汉化", applied: true, note: "app.asar 菜单/对话框中文" },
+                { id: "updateDisabled", label: "禁用自动升级", applied: true, note: "FREEBUFF_DISABLE_UPDATE_CHECK" },
+                { id: "zhInject", label: "悬停翻译/辅助工具注入", applied: true, note: "__fb_zh_inject__ 运行时" }
+              ]
+            });
+          }
+          if (cmd === "freebuff_list_models") {
+            return Promise.resolve({
+              status: "ok", message: "自定义模型已读取。",
+              path: "C:\\...\\orchestrator\\custom-models.json",
+              models: [
+                { id: "codexAPI", displayName: "codexAPI", tagline: "LUODA免费模型", availability: "always", dataUse: "service", premium: false, multimodal: false, baseURL: "http://47.114.75.115:40000", apiKey: "sk-xxx", provider: "codebuff" },
+                { id: "hermesAPI", displayName: "hermesAPI", tagline: "LUODA免费模型", availability: "always", dataUse: "service", premium: false, multimodal: false, baseURL: "http://47.114.75.115:40000", apiKey: "sk-xxx", provider: "codebuff" }
+              ]
+            });
+          }
+          return Promise.resolve({ status: "ok", message: "ok" });
+        }
+      };
+      // 自动导航到 freebuff 配置页（仅预览）
+      setTimeout(function nav() {
+        var btn = document.querySelector('.nav-item[title="freebuff配置"]');
+        if (btn) { btn.click(); return; }
+        setTimeout(nav, 300);
+      }, 500);
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
